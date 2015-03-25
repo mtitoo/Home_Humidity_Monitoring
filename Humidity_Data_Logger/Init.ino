@@ -9,19 +9,21 @@
 #include "RF24.h"
 const uint64_t Read_Pipes[5] = { East_ID,West_ID,South_ID,North_ID }; 
 
-Humidity_Sensor_RF_ID Sensor_ID
-Base_Station_RF_ID    Base_ID
-void Init (){
+void Serial_Init (){
 
   Serial.begin(57600);
   #ifdef DEBUG
     Serial.println(F("Program Started."));
   #endif
+}//end Serial_Init
+
+void RF_COM_Init (){
 
   radio.begin();
+ 
+  radio.openWritingPipe(Base); //Set Base ID
   
-  radio.openWritingPipe(Base);
- //set read pipes upto 6
+  //set read pipes upto 6
   for (int i=0;i < sizeof(pipes);i++){
     radio.openReadingPipe(i+1,Read_Pipes[i]);
   }//end of for
@@ -30,7 +32,7 @@ void Init (){
   radio.setAutoAck(1); // Ensure autoACK is enabled
   radio.enableAckPayload(); // Allow optional ack payloads
   radio.setRetries(0,15); // Smallest time between retries, max no. of retries
-  radio.setPayloadSize(1); // Here we are sending 1-byte payloads to test the call-response speed
+  radio.setPayloadSize(32); // We do not need that. By default sends 32 bytes. 
   radio.startListening(); // Start listening
 ``
 ```#ifdef DEBUG  
@@ -38,4 +40,13 @@ void Init (){
 ``#endif
 
 
-}//end of Init
+}//end of RF_COM_Init
+
+void Web_Service_Init (){
+
+}//end of Web_Service_Init
+
+void Ehternet_Module_Init(){
+
+
+}//end ethernet module init
