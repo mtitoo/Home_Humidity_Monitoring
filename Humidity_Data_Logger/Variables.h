@@ -8,3 +8,10 @@ unsigned long Previous_Time_Post_To_DataServer;
 unsigned long Current_Time_Post_To_Local_UDP;
 unsigned long Previous_Time_Post_To_Local_UDP;
 
+
+
+byte Humidity_Sensor_RF_ID[][6] = {"East","West","South","North"};
+byte Base_RF_ID = "Peralman";
+
+
+
