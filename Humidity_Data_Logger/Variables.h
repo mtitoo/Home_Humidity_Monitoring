@@ -1,12 +1,17 @@
 
-unsigned long Current_Time_RF_Sensor_Scan;
-unsigned long Previous_Time_RF_Sensor_Scan;
-unsigned long Current_Time_Any_Incoming_Web_Request;
-unsigned long Previosu_Time_Any_Incoming_Web_Request;
-unsigned long Current_Time_Post_To_DataServer;
-unsigned long Previous_Time_Post_To_DataServer;
-unsigned long Current_Time_Post_To_Local_UDP;
-unsigned long Previous_Time_Post_To_Local_UDP;
+unsigned long Current_Time_RF_Sensor_Scan = millis();
+unsigned long Previous_Time_RF_Sensor_Scan = 0;
+int           RF_Scan_Interval = 1000;
+unsigned long Current_Time_Any_Incoming_Web_Request = millis();
+unsigned long Previosu_Time_Any_Incoming_Web_Request = 0;;
+int           Web_Request_Interval = 1000;
+unsigned long Current_Time_Post_To_DataServer = millis();
+unsigned long Previous_Time_Post_To_DataServer = 0;;
+int           Data_Server_Interval = 1000;
+unsigned long Current_Time_Post_To_Local_UDP = millis();
+unsigned long Previous_Time_Post_To_Local_UDP = 0;;
+int           Local_UDP_Interval = 1000;
+int           Num_Pipe = 4;
 
 
 

@@ -15,7 +15,7 @@ void Init_RF_COM (){
   radio.openWritingPipe(Base_ID); //Set Base ID
   
   //set read pipes upto 6
-  for (int i=0;i < sizeof(Read_Pipes);i++){
+  for (int i=0;i < Num_Pipe;i++){
     radio.openReadingPipe(i+1,Read_Pipes[i]);
   }//end of for
   
