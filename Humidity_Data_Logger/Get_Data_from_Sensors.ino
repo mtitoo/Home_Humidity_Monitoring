@@ -15,11 +15,8 @@ void Get_Data_from_Sensors(){
                 String str = String(sensorValue);
                 str.toCharArray(Temp_Sensor_Data,32);  
                 Humidity_Sensor_Data[i]= String(Temp_Sensor_Data);
-                #ifdef DEBUG
-                 Serial.print("Current Data:");
-                 Serial.println(Temp_Sensor_Data);
-                 
-                 //printf("Current Data:%s",Temp_Sensor_Data);
+                #ifdef DEBUG         
+                printf("Current Data:%s\n",Temp_Sensor_Data);
                 #endif
 
           
@@ -28,7 +25,7 @@ void Get_Data_from_Sensors(){
             if( radio.available(&pipe_num)){
              
              #ifdef DEBUG
-               printf("Current Pipe:%d",pipe_num);
+               printf("Current Pipe:%d\n",pipe_num);
              #endif
               while (radio.available(&pipe_num)) { // While there is data 
                 radio.read( &Temp_Sensor_Data, sizeof(unsigned long) ); // Get the payload
@@ -36,8 +33,7 @@ void Get_Data_from_Sensors(){
                 
                 Humidity_Sensor_Data[i]= Temp_Sensor_Data;
                 #ifdef DEBUG
-                Serial.println("Tag_3");
-                printf("Current Data:%s",Temp_Sensor_Data);
+                printf("Current Data:%s\n",Temp_Sensor_Data);
                 #endif
             }//end of while
                      

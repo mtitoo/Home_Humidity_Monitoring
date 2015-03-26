@@ -34,11 +34,15 @@ void Init_RF_COM (){
 
 }//end of RF_COM_Init
 
-void Web_Service_Init (){
-
+void Init_Web_Service (){
+ 
 }//end of Web_Service_Init
 
-void Ehternet_Module_Init(){
+void Init_Ehternet_Module(){
+    byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
+    if (Ethernet.begin(mac) == 0) {
+    Serial.println("Failed to configure Ethernet using DHCP");
+   }
 
 
 }//end ethernet module init
