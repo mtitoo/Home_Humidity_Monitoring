@@ -21,8 +21,8 @@ String  Humidity_Sensor_Data [6]={"","","","","",""};
 #define   North_ID                     0xF0F0F0F044
 #define   Base_ID                      0xF0F0F0F0AA
 
-#define CE_Pin 7
-#define CS_Pin 8
+#define CE_Pin 8
+#define CS_Pin 7 
 RF24 radio (CE_Pin,CS_Pin);
 
 const uint64_t Read_Pipes[5] = { East_ID,West_ID,South_ID,North_ID }; 

@@ -1,7 +1,4 @@
 
-
-
-
 void Init_Serial (){
 
   Serial.begin(57600);
@@ -26,13 +23,14 @@ void Init_RF_COM (){
   radio.setAutoAck(1); // Ensure autoACK is enabled
   radio.enableAckPayload(); // Allow optional ack payloads
   radio.setRetries(0,15); // Smallest time between retries, max no. of retries
-  radio.setPayloadSize(32); // We do not need that. By default sends 32 bytes. 
+  //radio.setPayloadSize(32); // We do not need that. By default sends 32 bytes. 
+ 
   radio.startListening(); // Start listening
-
+  
   #ifdef DEBUG  
-  radio.printDetails(); // Dump the configuration of the rf unit for debugging
+    radio.printDetails(); // Dump the configuration of the rf unit for debugging
   #endif
-
+  
 
 }//end of RF_COM_Init
 

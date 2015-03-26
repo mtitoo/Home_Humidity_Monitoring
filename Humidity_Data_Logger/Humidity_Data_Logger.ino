@@ -8,6 +8,7 @@
 #define DEBUG
 
 void setup(){
+  printf_begin();
   Init_Serial();
   Init_RF_COM ();
 
