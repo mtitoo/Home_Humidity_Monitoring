@@ -41,8 +41,11 @@ void Init_Web_Service (){
 void Init_Ehternet_Module(){
     byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
     if (Ethernet.begin(mac) == 0) {
-    Serial.println("Failed to configure Ethernet using DHCP");
+        //Ethernet.begin(mac, Local_IP);
+            Serial.println("Failed both to configure Ethernet using DHCP & Static");
+        
    }
-
+    Serial.print("IP = ");
+   Serial.println(Ethernet.localIP());
 
 }//end ethernet module init

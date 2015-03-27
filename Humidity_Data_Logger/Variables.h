@@ -37,4 +37,12 @@ const uint64_t Read_Pipes[5] = { East_ID,West_ID,South_ID,North_ID };
 EthernetClient Web_client;
 EthernetServer server(80);
 char serverName[] = "www.thingspeak.com";
+byte Server_IP[] = {184, 106, 153, 149 };
+byte Local_IP[] = {192, 168, 1, 149 };
+
+
 int ThingSpeak_Counter = 0;
+int WebServer_Counter = 0;
+
+
+

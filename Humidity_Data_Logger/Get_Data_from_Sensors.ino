@@ -16,7 +16,7 @@ void Get_Data_from_Sensors(){
                 str.toCharArray(Temp_Sensor_Data,32);  
                 Humidity_Sensor_Data[i]= String(Temp_Sensor_Data);
                 #ifdef DEBUG         
-                printf("Current Data:%s\n",Temp_Sensor_Data);
+                //printf("Current Data:%s\n",Temp_Sensor_Data);
                 #endif
 
           

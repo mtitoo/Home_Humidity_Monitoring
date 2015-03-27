@@ -15,7 +15,7 @@
 void setup(){
    Current_Time_RF_Sensor_Scan = millis();
    Previous_Time_RF_Sensor_Scan = 0;
-   RF_Scan_Interval = 1000;
+   RF_Scan_Interval = 3000;
    Current_Time_Any_Incoming_Web_Request = millis();
    Previosu_Time_Any_Incoming_Web_Request = 0;;
    Web_Request_Interval = 100;
@@ -36,6 +36,7 @@ void setup(){
 
 void loop(){
   Current_Time_RF_Sensor_Scan = millis();
+  Current_Time_Any_Incoming_Web_Request = millis();
   
   
   //Scanning RF Data
