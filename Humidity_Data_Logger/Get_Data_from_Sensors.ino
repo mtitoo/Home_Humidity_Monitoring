@@ -1,4 +1,5 @@
-
+#include "nRF24L01.h"
+#include "RF24.h"
 
 void Get_Data_from_Sensors(){
        
@@ -7,6 +8,7 @@ void Get_Data_from_Sensors(){
        int sender_id;
        uint8_t pipe_num;
        char Temp_Sensor_Data[32];
+       unsigned long time;
               
        for (int i=0;i < Num_Pipe;i++){
              
@@ -27,15 +29,20 @@ void Get_Data_from_Sensors(){
              #ifdef DEBUG
                printf("Current Pipe:%d\n",pipe_num);
              #endif
+             uint8_t len;
               while (radio.available(&pipe_num)) { // While there is data 
-                radio.read( &Temp_Sensor_Data, sizeof(unsigned long) ); // Get the payload
+                 len = radio.getDynamicPayloadSize();
+                radio.read( &Temp_Sensor_Data,len); // Get the payload
+                //radio.read( &time, sizeof(unsigned long)); // Get the payload
               
-                
-                Humidity_Sensor_Data[i]= Temp_Sensor_Data;
+              }//end of while
+              Serial.println(len);
+               // Humidity_Sensor_Data[i]= Temp_Sensor_Data;
                 #ifdef DEBUG
-                printf("Current Data:%s\n",Temp_Sensor_Data);
+                 //printf("Current Data:%s\n",Temp_Sensor_Data);
+                Serial.println(*((unsigned long*)Temp_Sensor_Data));
                 #endif
-            }//end of while
+            
                      
          }//end of if
             

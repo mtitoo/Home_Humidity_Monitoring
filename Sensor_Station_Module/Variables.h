@@ -7,10 +7,10 @@
 
 dht DHT;
 
-#define DHT11_PIN 5
+#define DHT11_PIN 3
 
-#define CE_Pin 8
-#define CS_Pin 7 
+#define CE_Pin 9
+#define CS_Pin 10 
 RF24 radio (CE_Pin,CS_Pin);
 
 String  Sensor_Location [5] = {"East","West","South","North"}; 

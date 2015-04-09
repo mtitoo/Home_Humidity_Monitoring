@@ -29,12 +29,16 @@
                         break;
           }
           // DISPLAY DATA
-          Serial.print(DHT.humidity, 1);
-          Serial.print(",\t");
-          Serial.println(DHT.temperature, 1);
-         
-          Data_String = 'Humidity:'+ String(DHT.humidity)+'Temperature:'+String(DHT.temperature)+'Status:'+Status_String;
-          delay(2000);
+          //Serial.print(DHT.humidity, 1);
+          //Serial.print(",\t");
+          //Serial.println(DHT.temperature, 1);
+          //Data_String = "Humidity: "+ String(DHT.humidity)+"\t"+"Temperature:"+String(((1.8*DHT.temperature)+32))+"\t"+"Status:"+String(chk);
+          Data_String = String(DHT.humidity)+";"+String(((1.8*DHT.temperature)+32))+";"+String(chk);
+          
+          Serial.println(Data_String);
+          Serial.print("\n");
+          
+          //delay(2000);
   
   
   

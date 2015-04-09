@@ -71,17 +71,15 @@ void Web_Service(){
     
     for (int i=0;i<Num_Pipe;i++){
         client.println("  <tr>");
-        client.println("    <td>East</td>");
-        client.println("    <td>");
-        client.println(Sensor_Location[i]);
-        
+        client.println("    <td>"); 
+         client.println(Sensor_Location[i]);
         client.println(" </td>");
+        client.println("    <td>Humidity Sensor</td>");
         
         
-         client.println("    <td>");
         //client.println("    <td>Humidity Sensor</td>");
+        client.println("    <td>"); 
         client.println(WebServer_Counter++);
-        
         //client.print(Humidity_Sensor_Data[i]);
         client.println("    </td>");
         client.println("    <td></td>");

@@ -6,6 +6,7 @@
 #include "Variables.h"
 #include <dht.h>
 
+#define DEBUG
 #define   Station_ID                   East_ID
 
 
