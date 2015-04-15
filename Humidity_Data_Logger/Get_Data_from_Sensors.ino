@@ -40,7 +40,8 @@ void Get_Data_from_Sensors(){
                // Humidity_Sensor_Data[i]= Temp_Sensor_Data;
                 #ifdef DEBUG
                  //printf("Current Data:%s\n",Temp_Sensor_Data);
-                Serial.println(*((unsigned long*)Temp_Sensor_Data));
+                Serial.println(*((float*)Temp_Sensor_Data));
+                humidity = *((float*)Temp_Sensor_Data);
                 #endif
             
                      

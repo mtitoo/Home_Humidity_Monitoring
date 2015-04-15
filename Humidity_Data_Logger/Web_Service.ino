@@ -79,7 +79,8 @@ void Web_Service(){
         
         //client.println("    <td>Humidity Sensor</td>");
         client.println("    <td>"); 
-        client.println(WebServer_Counter++);
+        //client.println(WebServer_Counter++);
+        client.println(humidity);
         //client.print(Humidity_Sensor_Data[i]);
         client.println("    </td>");
         client.println("    <td></td>");

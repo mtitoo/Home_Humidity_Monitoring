@@ -6,7 +6,7 @@
 #include <dht.h>
 
 dht DHT;
-
+float humidity;
 #define DHT11_PIN 3
 
 #define CE_Pin 9

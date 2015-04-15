@@ -14,6 +14,7 @@ unsigned long Previous_Time_Post_To_Local_UDP = 0;;
 int           Local_UDP_Interval = 1000;
 int           Num_Pipe = 4;
 
+float humidity;
 
 
 //byte Humidity_Sensor_RF_ID[][6] = {"East","West","South","North"};

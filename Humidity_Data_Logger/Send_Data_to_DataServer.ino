@@ -6,7 +6,9 @@ void Send_Data_to_DataServer(){
     
     #ifdef DEBUG
       Serial.println("connected");
-      String Get_Request_String = String ("field1="+String(ThingSpeak_Counter));
+      //String Get_Request_String = String ("field1="+String(ThingSpeak_Counter));
+      String Get_Request_String = String ("field1="+String(humidity));
+      
       Serial.println(Get_Request_String);
       ThingSpeak_Counter++;
     #endif
@@ -16,10 +18,13 @@ void Send_Data_to_DataServer(){
     Web_client.println("POST /update HTTP/1.1");
     Web_client.println("Host: api.thingspeak.com");
     Web_client.println("Connection: close");
-    Web_client.println("X-THINGSPEAKAPIKEY:HK6OZW4YT4V6BU0K");
+    //Web_client.println("X-THINGSPEAKAPIKEY:HK6OZW4YT4V6BU0K");
+    Web_client.println("X-THINGSPEAKAPIKEY:8VFHE5FEEK9VLPRJ");
     Web_client.println("Content-Type: application/x-www-form-urlencoded");
     Web_client.print("Content-Length:");
     Web_client.println(Get_Request_String.length());
+    //Web_client.println(sizeof(float));
+    
     Web_client.println();
     Web_client.println(Get_Request_String);
     

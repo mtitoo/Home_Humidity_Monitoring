@@ -4,7 +4,7 @@
         radio.stopListening();
         unsigned long time = micros(); 
         //radio.write( &Data_String, sizeof(Data_String) );
-        radio.write( &time, sizeof(unsigned long) );
+        radio.write( &humidity, sizeof(float) );
         
         Serial.println(time);
         radio.startListening(); 
