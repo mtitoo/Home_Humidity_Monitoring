@@ -12,15 +12,18 @@ int           Data_Server_Interval = 1000;
 unsigned long Current_Time_Post_To_Local_UDP = millis();
 unsigned long Previous_Time_Post_To_Local_UDP = 0;;
 int           Local_UDP_Interval = 1000;
-int           Num_Pipe = 4;
+#define       Num_Pipe  4
 
-float humidity;
+float         humidity[Num_Pipe]={0,0,0,0};
+float         temperature[Num_Pipe]={0,0,0,0};
+boolean       Valid_Sensor_Data;
+float         Sensor_Station_Source_Voltage[Num_Pipe]={0,0,0,0};
 
 
 //byte Humidity_Sensor_RF_ID[][6] = {"East","West","South","North"};
 //byte Base_RF_ID = "Peralman";
 
-String  Sensor_Location [5] = {"East","West","South","North"}; 
+String  Sensor_Location [5] = {"Crawl Space","Inside Home","South","North"}; 
 String  Humidity_Sensor_Data [6]={"","","","","",""};
 
 #define   East_ID                      0xF0F0F0F011

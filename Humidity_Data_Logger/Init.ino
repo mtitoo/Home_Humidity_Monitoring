@@ -19,7 +19,7 @@ void Init_RF_COM (){
     radio.openReadingPipe(i+1,Read_Pipes[i]);
   }//end of for
   
-  radio.setPALevel(RF24_PA_LOW); //Right now Low Power Mode. Will need to change later
+  radio.setPALevel(RF24_PA_HIGH); //Right now Low Power Mode. Will need to change later
   radio.setAutoAck(1); // Ensure autoACK is enabled
   radio.enableAckPayload(); // Allow optional ack payloads
   radio.setRetries(0,15); // Smallest time between retries, max no. of retries

@@ -22,3 +22,4 @@ int           Humidity_Scan_Interval = 5000;
 int           Num_Pipe = 4;
 
 String  Data_String,Status_String;
+volatile int WatchDog_Counter;

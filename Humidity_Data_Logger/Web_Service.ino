@@ -5,7 +5,7 @@ void Web_Service(){
    // listen for incoming web clients
   EthernetClient client = server.available();
   if (client) {
-    Serial.println("new client");
+   // Serial.println("new client");
     
     //Check Server (LED) Voltage
     int sensorValue = analogRead(A0); // read the input on analog pin 0:
@@ -17,7 +17,7 @@ void Web_Service(){
     while (client.connected()) {
       if (client.available()) {
         char c = client.read();
-          Serial.print(c);
+          //Serial.print(c);
           buffer+=c;
           
         // if you've gotten to the end of the line (received a newline
@@ -58,8 +58,10 @@ void Web_Service(){
     client.println("  <tr>");
     client.println("    <th width=\"150\" scope=\"col\">Location</th>");
     client.println("    <th width=\"170\" scope=\"col\">Device</th>");
-    client.println("    <th width=\"175\" scope=\"col\"><div align=\"center\">Readings</div></th>");
-    //client.println("    <th width=\"80\" scope=\"col\">Ping</th>");
+    client.println("    <th width=\"175\" scope=\"col\"><div align=\"center\">Humidity(%)</div></th>");
+    client.println("    <th width=\"175\" scope=\"col\">Temperature (F)</th>");
+    client.println("    <th width=\"100\" scope=\"col\">Voltage (V)</th>");
+    
     client.println("    <th width=\"50\" scope=\"col\">Comments</th>");
     client.println("  </tr>");
     client.println("  ");
@@ -80,11 +82,15 @@ void Web_Service(){
         //client.println("    <td>Humidity Sensor</td>");
         client.println("    <td>"); 
         //client.println(WebServer_Counter++);
-        client.println(humidity);
+        client.println(humidity[i]);
         //client.print(Humidity_Sensor_Data[i]);
         client.println("    </td>");
-        client.println("    <td></td>");
-        
+        client.println("    <td>");
+        client.println(temperature[i]);
+        client.println("    </td>");
+        client.println("    <td>");
+        client.println(Sensor_Station_Source_Voltage[i]);
+        client.println("    </td>");
         client.println("  </tr>");
     }//end of for loop
     
@@ -111,7 +117,7 @@ void Web_Service(){
     }//End of while
     
     client.stop();
-    Serial.println("client disonnected");
+    //Serial.println("client disonnected");
       
     
   }//end of if - Client Available

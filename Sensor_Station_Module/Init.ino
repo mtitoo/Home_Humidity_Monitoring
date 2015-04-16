@@ -17,7 +17,7 @@ void Init_RF_COM (){
   //set read pipe to base 
     radio.openReadingPipe(1,Base_ID);
   
-  radio.setPALevel(RF24_PA_LOW); //Right now Low Power Mode. Will need to change later RF24_PA_HIGH
+  radio.setPALevel(RF24_PA_HIGH); //Right now Low Power Mode. Will need to change later RF24_PA_HIGH
   radio.setAutoAck(1); // Ensure autoACK is enabled
   radio.enableAckPayload(); // Allow optional ack payloads
   radio.setRetries(0,15); // Smallest time between retries, max no. of retries
@@ -31,3 +31,21 @@ void Init_RF_COM (){
   
 
 }//end of RF_COM_Init
+
+void init_watchdog(){
+  
+ /* Clear the reset flag. */
+    MCUSR &= ~(1<<WDRF);
+  
+  /* In order to change WDE or the prescaler, we need to
+   * set WDCE (This will allow updates for 4 clock cycles).
+   */
+  WDTCSR |= (1<<WDCE) | (1<<WDE);
+
+  /* set new watchdog timeout prescaler value */
+  WDTCSR = 1<<WDP0 | 1<<WDP3; /* 8.0 seconds */
+  
+  /* Enable the WD interrupt (note no reset). */
+  WDTCSR |= _BV(WDIE);
+
+}//end watchdog

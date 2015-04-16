@@ -33,7 +33,10 @@
           //Serial.print(",\t");
           //Serial.println(DHT.temperature, 1);
           //Data_String = "Humidity: "+ String(DHT.humidity)+"\t"+"Temperature:"+String(((1.8*DHT.temperature)+32))+"\t"+"Status:"+String(chk);
-          //Data_String = String(DHT.humidity)+";"+String(((1.8*DHT.temperature)+32))+";"+String(chk);
+          DHT.humidity;
+          DHT.temperature;
+          delay(4000);
+          Data_String = String(DHT.humidity)+";"+String(((1.8*DHT.temperature)+32))+";"+String(analogRead(0));
           humidity = DHT.humidity;
           Serial.println(Data_String);
           Serial.print("\n");

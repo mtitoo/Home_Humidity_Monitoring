@@ -42,7 +42,7 @@ void loop(){
   //Scanning RF Data
   if(Current_Time_RF_Sensor_Scan-Previous_Time_RF_Sensor_Scan > RF_Scan_Interval){
      Get_Data_from_Sensors();
-     Send_Data_to_DataServer();
+     if(Valid_Sensor_Data==true) {Send_Data_to_DataServer();}
      Previous_Time_RF_Sensor_Scan = Current_Time_RF_Sensor_Scan;
     
   }//end of Scanning RF Data
