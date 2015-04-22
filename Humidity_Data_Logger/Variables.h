@@ -43,10 +43,27 @@ EthernetServer server(80);
 char serverName[] = "www.thingspeak.com";
 byte Server_IP[] = {184, 106, 153, 149 };
 byte Local_IP[] = {192, 168, 1, 149 };
+#define Server_IP_WIFI "184.106.153.149"
+
+String GET = "GET /update?key=8VFHE5FEEK9VLPRJ&";
+#define SSID "Science"
+#define PASS "bangl"
 
 
 int ThingSpeak_Counter = 0;
 int WebServer_Counter = 0;
 
 
+#define BUFFER_SIZE 512
+#define bufferMax 512
+
+#define SSID  "Science"      // change this to match your WiFi SSID
+#define PASS  "bangl"  // change this to match your WiFi password
+#define PORT  "80"           // using port 8080 by default
+
+char buffer[BUFFER_SIZE];
+#define esp Serial1   // use Serial1 to talk to esp8266
+#define esp8266 Serial1 
+char OKrn[] = "OK\r\n";
+int bufferSize;
 

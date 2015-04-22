@@ -49,3 +49,13 @@ void Init_Ehternet_Module(){
    Serial.println(Ethernet.localIP());
 
 }//end ethernet module init
+
+
+void Init_ESP8266(){
+  esp.begin(9600);
+  setupWiFi();
+   Serial.print("device ip addr:");
+   esp.println("AT+CIFSR");
+   wait_for_esp_response(1000);
+   
+}//End of Init ESP

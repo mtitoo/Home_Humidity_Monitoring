@@ -28,9 +28,10 @@ void setup(){
   
   
    Init_Serial();
-   Init_Ehternet_Module();
+   //Init_Ehternet_Module();
    printf_begin();
    Init_RF_COM ();
+   Init_ESP8266();
    
 }//end of setup
 
@@ -42,13 +43,14 @@ void loop(){
   //Scanning RF Data
   if(Current_Time_RF_Sensor_Scan-Previous_Time_RF_Sensor_Scan > RF_Scan_Interval){
      Get_Data_from_Sensors();
-     if(Valid_Sensor_Data==true) {Send_Data_to_DataServer();}
+     //Serial.println(Valid_Sensor_Data);
+     if(Valid_Sensor_Data==true) {Send_Data_to_DataServer_Wifi();}
      Previous_Time_RF_Sensor_Scan = Current_Time_RF_Sensor_Scan;
     
   }//end of Scanning RF Data
   
   if(Current_Time_Any_Incoming_Web_Request-Previosu_Time_Any_Incoming_Web_Request > Web_Request_Interval){
-    Web_Service();
+   // Web_Service();
   }//end of Web Service
   
   

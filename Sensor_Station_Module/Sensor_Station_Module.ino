@@ -30,7 +30,7 @@
   void loop(){
       //Current_Time_Humidity_Sensor_Scan = millis();
       //if(Current_Time_Humidity_Sensor_Scan-Previous_Time_Humidity_Sensor_Scan > Humidity_Scan_Interval){
-        if(WatchDog_Counter >= 7){ 
+        if(WatchDog_Counter >= 1){ 
          Read_Humidity_Temp();
          Send_Data_To_Base();
          WatchDog_Counter=0;
