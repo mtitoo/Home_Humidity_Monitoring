@@ -1,8 +1,8 @@
-#define   East_ID                      0xF0F0F0F011
-#define   West_ID                      0xF0F0F0F022
-#define   South_ID                     0xF0F0F0F033
-#define   North_ID                     0xF0F0F0F044
-#define   Base_ID                      0xF0F0F0F0AA
+#define   Crawl_Space                  0xF0F0F0F011LL
+#define   Garden                       0xF0F0F0F022LL
+#define   South_ID                     0xF0F0F0F033LL
+#define   North_ID                     0xF0F0F0F044LL
+#define   Base_ID                      0xF0F0F0F0AALL
 #include <dht.h>
 
 dht DHT;
@@ -13,8 +13,8 @@ float humidity;
 #define CS_Pin 10 
 RF24 radio (CE_Pin,CS_Pin);
 
-String  Sensor_Location [5] = {"East","West","South","North"}; 
-const uint64_t Read_Pipes[5] = { East_ID,West_ID,South_ID,North_ID }; 
+String  Sensor_Location [5] = {"Crawl_Space","Garden","South","North"}; 
+const uint64_t Read_Pipes[5] = { Crawl_Space,Garden,South_ID,North_ID }; 
 
 unsigned long Current_Time_Humidity_Sensor_Scan = millis();
 unsigned long Previous_Time_Humidity_Sensor_Scan = 0;

@@ -3,7 +3,9 @@
 void Send_Data_to_DataServer(){
   
   if (Web_client.connect(Server_IP, 80)) {
-     String Get_Request_String = String ("field1="+String(humidity[0])+"&field2="+String(temperature[0])+"&field3="+String(Sensor_Station_Source_Voltage[0]));
+     String Get_Request_String = String ("field1="+String(humidity[0])+"&field2="+String(temperature[0])+"&field3="+String(Sensor_Station_Source_Voltage[0])
+     +"&field4="+String(humidity[1])+"&field5="+String(temperature[1])+"&field6="+String(Sensor_Station_Source_Voltage[1])
+     );
     #ifdef DEBUG
       Serial.println("connected");
       //String Get_Request_String = String ("field1="+String(ThingSpeak_Counter));
@@ -29,16 +31,7 @@ void Send_Data_to_DataServer(){
     Web_client.println(Get_Request_String);
     
     delay(300);
-      
-      
-      
-      
-      
-      
-      
-      //Web_client.println(Get_Request_String);
-      //Web_client.println();
-      //delay (50);
+ 
       Web_client.stop();
       Valid_Sensor_Data = false;
   }

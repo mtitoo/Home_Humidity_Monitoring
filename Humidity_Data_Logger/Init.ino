@@ -22,7 +22,7 @@ void Init_RF_COM (){
   radio.setPALevel(RF24_PA_HIGH); //Right now Low Power Mode. Will need to change later
   radio.setAutoAck(1); // Ensure autoACK is enabled
   radio.enableAckPayload(); // Allow optional ack payloads
-  radio.setRetries(0,15); // Smallest time between retries, max no. of retries
+  radio.setRetries(15,15); // Smallest time between retries, max no. of retries
   radio.setPayloadSize(32); // We do not need that. By default sends 32 bytes. 
  
   radio.startListening(); // Start listening

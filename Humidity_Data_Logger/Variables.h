@@ -26,17 +26,17 @@ float         Sensor_Station_Source_Voltage[Num_Pipe]={0,0,0,0};
 String  Sensor_Location [5] = {"Crawl Space","Inside Home","South","North"}; 
 String  Humidity_Sensor_Data [6]={"","","","","",""};
 
-#define   East_ID                      0xF0F0F0F011
-#define   West_ID                      0xF0F0F0F022
-#define   South_ID                     0xF0F0F0F033
-#define   North_ID                     0xF0F0F0F044
-#define   Base_ID                      0xF0F0F0F0AA
+#define   Crawl_Space                  0xF0F0F0F011LL
+#define   Garden                       0xF0F0F0F022LL
+#define   South_ID                     0xF0F0F0F033LL
+#define   North_ID                     0xF0F0F0F044LL
+#define   Base_ID                      0xF0F0F0F0AALL
 
 #define CE_Pin 8
 #define CS_Pin 7 
 RF24 radio (CE_Pin,CS_Pin);
 
-const uint64_t Read_Pipes[5] = { East_ID,West_ID,South_ID,North_ID }; 
+const uint64_t Read_Pipes[5] = { Crawl_Space,Garden,South_ID,North_ID }; 
 
 EthernetClient Web_client;
 EthernetServer server(80);
