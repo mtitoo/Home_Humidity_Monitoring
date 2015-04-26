@@ -16,7 +16,9 @@ void Send_Data_to_DataServer_Wifi(){
   }
 
    cmd = GET;
-   cmd += String("field1="+String(humidity[0])+"&field2="+String(temperature[0])+"&field3="+String(Sensor_Station_Source_Voltage[0])+"\r\n");
+   //cmd += String("field1="+String(humidity[0])+"&field2="+String(temperature[0])+"&field3="+String(Sensor_Station_Source_Voltage[0])+"\r\n");
+   cmd+=String ("field1="+String(humidity[0])+"&field2="+String(temperature[0])+"&field3="+String(Sensor_Station_Source_Voltage[0])
+     +"&field4="+String(humidity[1])+"&field5="+String(temperature[1])+"&field6="+String(Sensor_Station_Source_Voltage[1])+"\r\n");
    esp.print("AT+CIPSEND=");
    esp.println(cmd.length());
     delay(1000);
